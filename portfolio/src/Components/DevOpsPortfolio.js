@@ -16,6 +16,7 @@ const commandMap = {
 };
 
 export default function DevOpsPortfolio() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [displayedOutput, setDisplayedOutput] = useState("");
@@ -59,8 +60,18 @@ export default function DevOpsPortfolio() {
         </video>
       </div>
 
+      <button
+            onClick={() => setSidebarOpen(true)}
+            className="fixed top-4 left-4 z-40 bg-green-500 text-black px-3 py-1 rounded shadow hover:bg-green-400 transition"
+            >
+            ☰ Menu
+        </button>
+
       <div className="relative z-10 flex flex-row h-screen bg-black/80">
-        <Sidebar />
+        {sidebarOpen && (
+            <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        )}
+
 
         <div className="flex-1 flex flex-col justify-center items-center text-center px-4">
         <motion.h1
