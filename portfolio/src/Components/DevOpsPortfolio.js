@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import Sidebar from "./Sidebar.js";
 import Experience from './Experience.js';
 import "./DevOpsPortfolio.css";
+import Skills from "./Skills.js";
 
 const commandMap = {
   "git clone": <Experience />,
-  "docker build": "Skills: Docker, Kubernetes, Terraform, Jenkins, GitHub Actions, Prometheus, Grafana.",
+  "docker build": <Skills/>,
   "kubectl apply": "Projects: Built scalable Kubernetes clusters, CI/CD pipelines, and monitoring systems.",
   "terraform apply": "Infrastructure: Designed cloud infrastructure with Terraform on AWS including EKS, VPC, and RDS.",
   "monitoring enable": "Monitoring: Implemented observability using Prometheus, Grafana, ELK stack, and Dynatrace.",
