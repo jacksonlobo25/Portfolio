@@ -17,7 +17,7 @@ const experienceText = `
 
 const Experience = () => {
   return (
-    <div className="p-6 bg-[#0f172a] border border-green-500 rounded-md text-green-300 font-mono text-sm leading-relaxed shadow-lg max-w-3xl mx-auto whitespace-pre-wrap overflow-hidden">
+    <div className="p-6 text-sm leading-relaxed shadow-lg max-w-3xl mx-auto whitespace-pre-wrap overflow-hidden">
       <Typewriter
         words={[experienceText]}
         loop={1}
