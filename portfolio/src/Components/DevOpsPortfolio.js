@@ -30,7 +30,7 @@ export default function DevOpsPortfolio() {
       clearTimeout(inactivityTimer.current);
       inactivityTimer.current = setTimeout(() => {
         setInactive(true);
-      }, 60000); // 60,000 ms = 1 minute
+      }, 10000); // 60,000 ms = 1 minute
     };
   
     const events = ["mousemove", "keydown", "mousedown", "touchstart"];
