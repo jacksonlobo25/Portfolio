@@ -3,19 +3,21 @@ import { Typewriter } from "react-simple-typewriter";
 
 const experienceText = `
 🔧 Endava — Junior DevOps Engineer (Aug. 2023 – Present)
+
 • Optimized and maintained Jenkins pipelines, troubleshooting build errors and refining CI/CD.
-• Deployed apps in Kubernetes using Terraform, provisioning scalable infrastructure on AWS.
-• Monitored logs via Splunk & CloudWatch to proactively resolve performance issues.
-• Implemented DevOps best practices in Spring Boot & React projects.
+• Deployed applications in Kubernetes using Terraform, provisioning scalable and deployable nodes.
+• Monitored application logs using Splunk and AWS CloudWatch to enhance system performance.
+• Implemented DevOps best practices in Spring Boot and React projects.
 
 💻 Kakunje Software — Software Engineering Intern (Jan. 2023 – Apr. 2023)
-• Modernized ISTE government site using Spring Boot, React, Bootstrap, MySQL.
-• Optimized performance and scalability through full-stack redesign.
+
+• Replaced legacy ASP.NET & CSS with Spring Boot, React, Bootstrap, and MySQL for ISTE government site.
+• Designed a scalable frontend/backend, enhancing performance and maintainability.
 `;
 
 const Experience = () => {
   return (
-    <div className="p-6 bg-gray-900 border border-green-500 rounded-md text-green-300 font-mono text-sm whitespace-pre-wrap leading-relaxed shadow-md max-w-3xl mx-auto">
+    <div className="p-6 bg-[#0f172a] border border-green-500 rounded-md text-green-300 font-mono text-sm leading-relaxed shadow-lg max-w-3xl mx-auto whitespace-pre-wrap overflow-hidden">
       <Typewriter
         words={[experienceText]}
         loop={1}
