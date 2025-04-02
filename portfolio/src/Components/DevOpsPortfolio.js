@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { motion } from "framer-motion";
-import Sidebar from "./Sidebar"; // Add this at the top
+import Sidebar from "./Sidebar.js";
 import "./DevOpsPortfolio.css";
 
 const commandMap = {
