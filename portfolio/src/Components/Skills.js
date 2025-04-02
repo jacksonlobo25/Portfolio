@@ -5,9 +5,9 @@ import {
   FaPython,
 } from "react-icons/fa";
 import {
-  SiTerraform, SiMicrosoftazure, SiSpringboot, SiKubernetes, SiSplunk
+  SiTerraform, SiGnubash, SiSpringboot, SiKubernetes, SiSplunk
 } from "react-icons/si";
-import { VscAzure, SiGnubash } from "react-icons/vsc";
+import { VscAzure } from "react-icons/vsc";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
