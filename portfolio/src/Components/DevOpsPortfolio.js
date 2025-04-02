@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { motion } from "framer-motion";
@@ -21,6 +21,28 @@ export default function DevOpsPortfolio() {
   const [output, setOutput] = useState("");
   const [displayedOutput, setDisplayedOutput] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const [inactive, setInactive] = useState(false);
+  const inactivityTimer = useRef(null);
+  
+  useEffect(() => {
+    const resetTimer = () => {
+      clearTimeout(inactivityTimer.current);
+      inactivityTimer.current = setTimeout(() => {
+        setInactive(true);
+      }, 60000); // 60,000 ms = 1 minute
+    };
+  
+    const events = ["mousemove", "keydown", "mousedown", "touchstart"];
+    events.forEach((event) => window.addEventListener(event, resetTimer));
+    resetTimer(); // start timer on load
+  
+    return () => {
+      events.forEach((event) => window.removeEventListener(event, resetTimer));
+      clearTimeout(inactivityTimer.current);
+    };
+  }, []);
+  
 
   useEffect(() => {
     let timeout;
@@ -122,6 +144,18 @@ export default function DevOpsPortfolio() {
             </Card>
           </motion.div>
         )}
+
+        {inactive && (
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            className="fixed inset-0 bg-white z-[9999] flex items-center justify-center text-black text-2xl font-mono"
+        >
+            Session expired. Please reload the page.
+        </motion.div>
+        )}
+
       </div>
     </div>
     </div>
