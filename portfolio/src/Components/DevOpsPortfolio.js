@@ -47,19 +47,31 @@ export default function DevOpsPortfolio() {
 
   useEffect(() => {
     let timeout;
+  
     if (output && loading) {
-      timeout = setTimeout(() => {
-        let i = 0;
-        const interval = setInterval(() => {
-          setDisplayedOutput((prev) => prev + output[i]);
-          i++;
-          if (i >= output.length) clearInterval(interval);
-        }, 20);
-        setLoading(false);
-      }, 1000); // Simulate loading delay
+      // Only animate if it's a string
+      if (typeof output === "string") {
+        timeout = setTimeout(() => {
+          let i = 0;
+          const interval = setInterval(() => {
+            setDisplayedOutput((prev) => prev + output[i]);
+            i++;
+            if (i >= output.length) clearInterval(interval);
+          }, 20);
+          setLoading(false);
+        }, 1000);
+      } else {
+        // For JSX components (like <Experience />), just render it after delay
+        timeout = setTimeout(() => {
+          setDisplayedOutput(output);
+          setLoading(false);
+        }, 1000);
+      }
     }
+  
     return () => clearTimeout(timeout);
   }, [output, loading]);
+  
 
   const handleCommand = (e) => {
     e.preventDefault();
