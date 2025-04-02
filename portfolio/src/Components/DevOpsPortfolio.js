@@ -31,7 +31,7 @@ export default function DevOpsPortfolio() {
       clearTimeout(inactivityTimer.current);
       inactivityTimer.current = setTimeout(() => {
         setInactive(true);
-      }, 180000); // 60,000 ms = 1 minute
+      }, 300000); // 60,000 ms = 1 minute
     };
   
     const events = ["mousemove", "keydown", "mousedown", "touchstart"];
@@ -104,7 +104,7 @@ export default function DevOpsPortfolio() {
             </button>
         )}
 
-      <div className="relative z-10 flex flex-row h-screen bg-black/80">
+      <div className="relative z-10 flex flex-row min-h-screen bg-black/80">
         {sidebarOpen && (
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         )}

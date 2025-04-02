@@ -23,9 +23,9 @@ const Experience = () => {
         loop={1}
         cursor
         cursorStyle="_"
-        typeSpeed={25}
+        typeSpeed={15}
         deleteSpeed={0}
-        delaySpeed={1000}
+        delaySpeed={800}
       />
     </div>
   );
