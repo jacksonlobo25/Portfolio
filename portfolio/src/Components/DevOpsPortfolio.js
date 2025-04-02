@@ -65,7 +65,7 @@ export default function DevOpsPortfolio() {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-6xl font-bold mb-2 drop-shadow-md"
         >
-          HI, I'M JACKSON LOB
+          HI, I'M JACKSON LOBO
         </motion.h1>
 
         <motion.p
