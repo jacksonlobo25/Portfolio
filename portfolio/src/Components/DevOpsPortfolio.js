@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent } from "@/ui/card";
-import { Input } from "@/ui/input";
+import { Card, CardContent } from "./ui/card";
+import { Input } from "./ui/input";
 import { motion } from "framer-motion";
 import "./DevOpsPortfolio.css";
 
+Input
 const commandMap = {
   "git clone": "Experience: 5+ years in DevOps, worked with AWS, Terraform, GitHub Actions, and Kubernetes.",
   "docker build": "Skills: Docker, Kubernetes, Terraform, Jenkins, GitHub Actions, Prometheus, Grafana.",
