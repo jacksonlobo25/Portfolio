@@ -3,10 +3,11 @@ import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { motion } from "framer-motion";
 import Sidebar from "./Sidebar.js";
+import Experience from './Experience.js';
 import "./DevOpsPortfolio.css";
 
 const commandMap = {
-  "git clone": "Experience: 5+ years in DevOps, worked with AWS, Terraform, GitHub Actions, and Kubernetes.",
+  "git clone": <Experience />,
   "docker build": "Skills: Docker, Kubernetes, Terraform, Jenkins, GitHub Actions, Prometheus, Grafana.",
   "kubectl apply": "Projects: Built scalable Kubernetes clusters, CI/CD pipelines, and monitoring systems.",
   "terraform apply": "Infrastructure: Designed cloud infrastructure with Terraform on AWS including EKS, VPC, and RDS.",
@@ -139,7 +140,12 @@ export default function DevOpsPortfolio() {
           >
             <Card className="bg-gray-800 border border-green-500">
               <CardContent className="p-6 text-lg text-left font-mono text-green-300 whitespace-pre-wrap">
-                {loading ? <span className="typing-loader" /> : displayedOutput}
+              {loading ? (
+                    <span className="typing-loader" />
+                    ) : (
+                    <>{typeof displayedOutput === "string" ? displayedOutput : displayedOutput}</>
+                )}
+
               </CardContent>
             </Card>
           </motion.div>
