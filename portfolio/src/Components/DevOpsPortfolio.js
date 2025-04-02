@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { motion } from "framer-motion";
+import Sidebar from "./Sidebar"; // Add this at the top
 import "./DevOpsPortfolio.css";
 
 const commandMap = {
@@ -58,7 +59,10 @@ export default function DevOpsPortfolio() {
         </video>
       </div>
 
-      <div className="relative z-10 flex flex-col justify-center items-center text-center h-screen bg-black/80 px-4">
+      <div className="relative z-10 flex flex-row h-screen bg-black/80">
+        <Sidebar />
+
+        <div className="flex-1 flex flex-col justify-center items-center text-center px-4">
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -106,6 +110,7 @@ export default function DevOpsPortfolio() {
           </motion.div>
         )}
       </div>
+    </div>
     </div>
   );
 }
