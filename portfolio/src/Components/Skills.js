@@ -2,11 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   FaDocker, FaGitAlt, FaGithub, FaJenkins, FaAws,
-  FaPython, FaCloud, FaTerminal
+  FaPython,
 } from "react-icons/fa";
 import {
   SiTerraform, SiMicrosoftazure, SiSpringboot, SiKubernetes, SiSplunk
 } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
 import { TbBrandBash } from "react-icons/tb";
 
 const sectionVariants = {
@@ -26,7 +27,7 @@ const skillsData = [
   },
   {
     title: "Cloud",
-    icons: [FaAws, SiMicrosoftazure],
+    icons: [FaAws, VscAzure],
     labels: ["AWS", "Azure"]
   },
   {
