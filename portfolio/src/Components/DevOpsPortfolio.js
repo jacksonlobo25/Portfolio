@@ -104,13 +104,13 @@ export default function DevOpsPortfolio() {
             </button>
         )}
 
-      <div className="relative z-10 flex flex-row min-h-screen bg-black/80">
+        <div className="relative z-10 bg-black/80 min-h-screen flex flex-col lg:flex-row">
         {sidebarOpen && (
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         )}
 
 
-        <div className="flex-1 flex flex-col justify-center items-center text-center px-4">
+        <div className="flex-1 flex flex-col items-center text-center px-4 py-16">
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
