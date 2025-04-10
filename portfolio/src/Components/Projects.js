@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
+import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
-import ProjectCard from "./ui/ProjectCard";
 
-const deploymentSteps = [
+const steps = [
   "kubectl apply -f projects.yaml",
   "deployment.apps/portfolio created",
   "service/portfolio-svc created",
@@ -30,14 +31,16 @@ const projects = [
 ];
 
 const Projects = () => {
+  const [visibleSteps, setVisibleSteps] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [showProjects, setShowProjects] = useState(false);
 
   useEffect(() => {
-    if (currentStep < deploymentSteps.length) {
+    if (currentStep < steps.length) {
       const timeout = setTimeout(() => {
+        setVisibleSteps((prev) => [...prev, steps[currentStep]]);
         setCurrentStep((prev) => prev + 1);
-      }, 900);
+      }, 1200);
       return () => clearTimeout(timeout);
     } else {
       setTimeout(() => setShowProjects(true), 1000);
@@ -45,21 +48,35 @@ const Projects = () => {
   }, [currentStep]);
 
   return (
-    <div className="p-6 max-w-5xl mx-auto text-green-300 font-mono">
-      <div className="bg-[#0d1117] border border-green-500 rounded-md p-4 mb-6 shadow-lg">
-        {deploymentSteps.slice(0, currentStep).map((step, idx) => (
+    <div className="max-w-5xl mx-auto px-4 pt-4 text-white">
+      {/* Terminal Box */}
+      <div className="bg-[#1e1e1e] border border-green-500 rounded-md p-6 font-mono text-green-300 shadow-lg text-sm">
+        {visibleSteps.map((step, idx) => (
           <div key={idx} className="mb-1">
-            {step}
+            <Typewriter
+              words={[step]}
+              cursor
+              cursorStyle="_"
+              typeSpeed={30}
+              deleteSpeed={0}
+              delaySpeed={500}
+            />
           </div>
         ))}
       </div>
 
+      {/* Projects shown after "deployment complete" */}
       {showProjects && (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10"
+        >
           {projects.map((project, index) => (
             <ProjectCard key={index} index={index} {...project} />
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   );
