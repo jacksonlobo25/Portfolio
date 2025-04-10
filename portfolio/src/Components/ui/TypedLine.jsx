@@ -9,9 +9,9 @@ const TypedLine = ({ text }) => {
       words={[text]}
       cursor={!done}
       cursorStyle="_"
-      typeSpeed={30}
+      typeSpeed={15}
       deleteSpeed={0}
-      delaySpeed={500}
+      delaySpeed={200}
       loop={1}
       onLoopDone={() => setDone(true)}
     />
