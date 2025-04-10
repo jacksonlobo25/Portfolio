@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import ProjectCard from "./ui/ProjectCard";
+import TypedLine from "./ui/TypedLine";
 
 const steps = [
   "kubectl apply -f projects.yaml",
@@ -22,6 +23,26 @@ const projects = [
     title: "Kubernetes Monitoring",
     image: "/images/monitoring.png",
     github: "https://github.com/yourname/k8s-monitoring"
+  },
+  {
+    title: "Spring Boot + React App",
+    image: "/images/fullstack.png",
+    github: "https://github.com/yourname/spring-react-app"
+  },
+  {
+    title: "Spring Boot + React App",
+    image: "/images/fullstack.png",
+    github: "https://github.com/yourname/spring-react-app"
+  },
+  {
+    title: "Spring Boot + React App",
+    image: "/images/fullstack.png",
+    github: "https://github.com/yourname/spring-react-app"
+  },
+  {
+    title: "Spring Boot + React App",
+    image: "/images/fullstack.png",
+    github: "https://github.com/yourname/spring-react-app"
   },
   {
     title: "Spring Boot + React App",
@@ -53,14 +74,7 @@ const Projects = () => {
       <div className="bg-[#1e1e1e] border border-green-500 rounded-md p-6 font-mono text-green-300 shadow-lg text-sm">
         {visibleSteps.map((step, idx) => (
           <div key={idx} className="mb-1">
-            <Typewriter
-              words={[step]}
-              cursor
-              cursorStyle="_"
-              typeSpeed={30}
-              deleteSpeed={0}
-              delaySpeed={500}
-            />
+            <TypedLine text={step}/>
           </div>
         ))}
       </div>
