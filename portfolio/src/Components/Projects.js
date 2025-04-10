@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
-import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
+import ProjectCard from "./ui/ProjectCard";
 
 const steps = [
   "kubectl apply -f projects.yaml",
