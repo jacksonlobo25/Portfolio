@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
-import { Button } from '@/components/ui/button'; // your existing styled button
 import { motion } from 'framer-motion';
+import Button from './ui/Button';
 
 const AboutMe = () => {
   const [generating, setGenerating] = useState(false);
