@@ -6,11 +6,12 @@ import Sidebar from "./Sidebar.js";
 import Experience from './Experience.js';
 import "./DevOpsPortfolio.css";
 import Skills from "./Skills.js";
+import Projects from "./Projects.js";
 
 const commandMap = {
   "git clone": <Experience />,
   "docker build": <Skills/>,
-  "kubectl apply": "Projects: Built scalable Kubernetes clusters, CI/CD pipelines, and monitoring systems.",
+  "kubectl apply": <Projects/>,
   "terraform apply": "Infrastructure: Designed cloud infrastructure with Terraform on AWS including EKS, VPC, and RDS.",
   "monitoring enable": "Monitoring: Implemented observability using Prometheus, Grafana, ELK stack, and Dynatrace.",
   "log view": "Deployment Logs: Successfully deployed and managed dozens of services across environments.",
