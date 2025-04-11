@@ -176,6 +176,42 @@ export default function DevOpsPortfolio() {
         </motion.div>
         )}
 
+        {/* Animated DevOps Loop */}
+{!input && !displayedOutput && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.8 }}
+    className="mt-12 flex justify-center"
+  >
+    <motion.svg
+      width="300"
+      height="150"
+      viewBox="0 0 640 320"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      animate={{ rotate: 360 }}
+      transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+    >
+      <path
+        d="M160,160c0-88,96-160,160-160s160,72,160,160s-96,160-160,160S160,248,160,160Z"
+        stroke="#00FF84"
+        strokeWidth="10"
+        fill="none"
+      />
+      <path
+        d="M480,160c0,88-96,160-160,160S160,248,160,160S256,0,320,0S480,72,480,160Z"
+        stroke="#0099FF"
+        strokeWidth="10"
+        fill="none"
+      />
+      <text x="200" y="160" fill="#00FF84" fontSize="24" fontFamily="monospace">Dev</text>
+      <text x="370" y="160" fill="#0099FF" fontSize="24" fontFamily="monospace">Ops</text>
+    </motion.svg>
+  </motion.div>
+)}
+
+
       </div>
     </div>
     </div>
