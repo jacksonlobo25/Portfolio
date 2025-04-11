@@ -8,13 +8,14 @@ import "./DevOpsPortfolio.css";
 import Skills from "./Skills.js";
 import Projects from "./Projects.js";
 import AboutMe from "./AboutMe.js";
+import Contact from "./Contact.js";
 
 const commandMap = {
   "git clone": <Experience />,
   "docker build": <Skills/>,
   "kubectl apply": <Projects/>,
   "terraform apply": <AboutMe/>,
-  "monitoring enable": "Monitoring: Implemented observability using Prometheus, Grafana, ELK stack, and Dynatrace.",
+  "monitoring enable": <Contact/>,
   "log view": "Deployment Logs: Successfully deployed and managed dozens of services across environments.",
   "rollback": "Rollback Story: Resolved a failed production deployment by quick rollback and post-mortem analysis.",
 };
