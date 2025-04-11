@@ -3,23 +3,26 @@ import { motion } from 'framer-motion';
 import { FaCloud } from 'react-icons/fa';
 
 const AboutMe = () => {
-  const [visibleLines, setVisibleLines] = useState([]);
+  const [typedText, setTypedText] = useState('');
   const [generating, setGenerating] = useState(false);
   const [showResume, setShowResume] = useState(false);
 
-  const lines = [
+  const aboutLines = [
     "Hi, I'm Jackson 👋",
     'A DevOps Engineer passionate about automation, CI/CD, and cloud-native tools.',
-    'I build and deploy modern applications using Docker, Kubernetes, GitHub Actions, and more.',
+    'I build and deploy modern applications using Docker, Kubernetes, GitHub Actions, and more.'
   ];
+
+  const fullText = aboutLines.join('\n'); // single string with line breaks
 
   useEffect(() => {
     let index = 0;
+
     const interval = setInterval(() => {
-      setVisibleLines((prev) => [...prev, lines[index]]);
+      setTypedText((prev) => prev + fullText.charAt(index));
       index++;
-      if (index === lines.length) clearInterval(interval);
-    }, 1000); // delay per line
+      if (index === fullText.length) clearInterval(interval);
+    }, 40); // speed per character
 
     return () => clearInterval(interval);
   }, []);
@@ -30,24 +33,15 @@ const AboutMe = () => {
     setTimeout(() => {
       setGenerating(false);
       setShowResume(true);
-    }, 3000); // simulate loading
+    }, 3000);
   };
 
   return (
-    <div className="bg-black text-green-400 font-mono p-6 rounded-xl shadow-lg max-w-3xl mx-auto mt-10">
+    <div className="bg-black text-green-400 font-mono p-6 rounded-xl shadow-lg max-w-3xl mx-auto mt-10 whitespace-pre-wrap">
       <div className="text-xl mb-6 space-y-3">
         <div><span className="text-purple-400">$ whoami</span></div>
 
-        {visibleLines.map((line, index) => (
-          <motion.p
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {line}
-          </motion.p>
-        ))}
+        <p>{typedText}</p>
       </div>
 
       <div className="mt-6">
