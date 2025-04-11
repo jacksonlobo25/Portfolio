@@ -15,9 +15,7 @@ const commandMap = {
   "docker build": <Skills/>,
   "kubectl apply": <Projects/>,
   "terraform apply": <AboutMe/>,
-  "monitoring enable": <Contact/>,
-  "log view": "Deployment Logs: Successfully deployed and managed dozens of services across environments.",
-  "rollback": "Rollback Story: Resolved a failed production deployment by quick rollback and post-mortem analysis.",
+  "monitoring enable": <Contact/>
 };
 
 export default function DevOpsPortfolio() {
