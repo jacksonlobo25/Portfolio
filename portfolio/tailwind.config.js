@@ -7,4 +7,11 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  theme: {
+    extend: {
+      fontFamily: {
+        mono: ['"Fira Code"', 'monospace'],
+      },
+    },
+  },
 }

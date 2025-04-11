@@ -6,9 +6,7 @@ const commands = [
   { cmd: "docker build", desc: "Show Skills" },
   { cmd: "kubectl apply", desc: "Show Projects" },
   { cmd: "terraform apply", desc: "Show Infrastructure" },
-  { cmd: "monitoring enable", desc: "Show Monitoring Tools" },
-  { cmd: "log view", desc: "Show Deployment Logs" },
-  { cmd: "rollback", desc: "Show Rollback Story" },
+  { cmd: "monitoring enable", desc: "Show Monitoring Tools" }
 ];
 
 const Sidebar = ({ isOpen, onClose }) => {
