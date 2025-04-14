@@ -155,16 +155,17 @@ export default function DevOpsPortfolio() {
             transition={{ duration: 0.4 }}
             className="mt-6 w-full max-w-3xl"
           >
-            <Card className="bg-gray-800 border border-green-500">
-              <CardContent className="p-6 text-lg text-left font-mono text-green-300 whitespace-pre-wrap">
-              {loading ? (
-                    <span className="typing-loader" />
-                    ) : (
-                    <>{typeof displayedOutput === "string" ? displayedOutput : displayedOutput}</>
-                )}
-
-              </CardContent>
-            </Card>
+            {typeof displayedOutput === "string" && displayedOutput.startsWith("⚠️") ? (
+              // Show Card with border ONLY for invalid command
+              <Card className="bg-gray-800 border border-green-500">
+                <CardContent className="p-6 text-lg text-left font-mono text-green-300 whitespace-pre-wrap">
+                  {displayedOutput}
+                </CardContent>
+              </Card>
+            ) : (
+              // For valid JSX components, just display as-is
+              <>{loading ? <span className="typing-loader" /> : displayedOutput}</>
+            )}
           </motion.div>
         )}
 
