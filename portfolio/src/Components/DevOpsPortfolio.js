@@ -99,14 +99,15 @@ export default function DevOpsPortfolio() {
         </video>
       </div>
 
-        {!sidebarOpen && (
-            <button
-                onClick={() => setSidebarOpen(true)}
-                className="fixed top-4 left-4 z-40 bg-green-500 text-black px-3 py-1 rounded shadow hover:bg-green-400 transition"
-                >
-                ☰
-            </button>
+      {!sidebarOpen && !inactive && (
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="fixed top-4 left-4 z-40 bg-green-500 text-black px-3 py-1 rounded shadow hover:bg-green-400 transition"
+          >
+            ☰
+          </button>
         )}
+
 
         <div className="relative z-10 bg-black/80 min-h-screen flex flex-col lg:flex-row">
         {sidebarOpen && (
