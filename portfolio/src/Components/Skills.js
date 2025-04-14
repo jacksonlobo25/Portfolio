@@ -1,8 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  FaDocker, FaGitAlt, FaGithub, FaJenkins, FaAws,
-  FaPython,
+  FaDocker, FaGitAlt, FaGithub, FaJenkins, FaAws, FaPython,
 } from "react-icons/fa";
 import {
   SiTerraform, SiGnubash, SiSpringboot, SiKubernetes, SiSplunk
@@ -43,8 +42,14 @@ const skillsData = [
 
 const Skills = () => {
   return (
-    <div className="p-8 max-w-5xl mx-auto text-white">
-      <h2 className="text-4xl font-bold mb-10 text-left drop-shadow-lg">Skills</h2>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="max-w-5xl mx-auto p-6 rounded-md border border-green-500 bg-[#0d1117] text-green-300 font-mono shadow-lg"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-left">Skills</h2>
+
       <div className="flex flex-col gap-12">
         {skillsData.map((section, i) => (
           <motion.div
@@ -55,7 +60,7 @@ const Skills = () => {
             animate="visible"
             variants={sectionVariants}
           >
-            <div className="w-40 font-bold text-lg border-l-4 border-white pl-4">
+            <div className="w-40 font-bold text-lg border-l-4 border-green-400 pl-4">
               {section.title}
             </div>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
@@ -69,7 +74,7 @@ const Skills = () => {
           </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
