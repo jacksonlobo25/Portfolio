@@ -81,6 +81,9 @@ export default function DevOpsPortfolio() {
     e.preventDefault();
     const trimmed = input.trim().toLowerCase();
     const matched = Object.keys(commandMap).find((cmd) => trimmed.startsWith(cmd));
+
+    setSidebarOpen(false);
+
     if (matched) {
       setDisplayedOutput("");
       setOutput(commandMap[matched]);
