@@ -35,13 +35,29 @@ const AboutMe = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 px-4">
-      <div className="bg-[#0d1117] text-green-300 border border-green-500 rounded-md p-6 font-mono text-sm shadow-lg">
-        <div className="mb-4">
-          <span className="text-purple-400">/home/jackson:$</span> <span className="text-green-300">whoami</span>
+    <div className="max-w-4xl mx-auto mt-10 px-4 font-mono text-sm text-green-300">
+      
+      {/* Profile Image */}
+      <motion.div
+        initial={{ opacity: 0, y: 20, scale: 0.9 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="mb-6"
+      >
+        <div className="rounded-full border-4 border-green-500 w-28 h-28 overflow-hidden">
+          <img
+            src="/images/your-photo.jpg" // 🔁 Replace with your image
+            alt="Jackson Lobo"
+            className="object-cover w-full h-full"
+          />
         </div>
+      </motion.div>
 
-        <p className="whitespace-pre-wrap">{typedText}</p>
+      {/* Terminal-style box */}
+      <div className="bg-[#0d1117] border border-green-500 rounded-md px-4 py-5 shadow-lg whitespace-pre-wrap text-left">
+        <div className="text-purple-400 mb-2">/home/jackson:$ <span className="text-green-300">whoami</span></div>
+
+        <p>{typedText}</p>
 
         <div className="mt-6">
           <button
@@ -54,14 +70,14 @@ const AboutMe = () => {
 
         {generating && (
           <motion.div
-            className="mt-6 flex justify-center items-center"
+            className="mt-6 flex justify-start"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
-              className="text-blue-400 text-4xl"
+              className="text-blue-400 text-3xl"
             >
               <FaCloud />
             </motion.div>
@@ -77,29 +93,13 @@ const AboutMe = () => {
             <a
               href="/resume.pdf"
               download
-              className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2 inline-block"
+              className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-block"
             >
               📄 Download Resume
             </a>
           </motion.div>
         )}
       </div>
-
-      {/* Profile Image Display */}
-      <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        className="mt-8 flex justify-center"
-      >
-        <div className="rounded-full border-4 border-green-500 p-1 bg-black shadow-lg">
-          <img
-            src="/images/your-photo.jpg" // ✅ Replace with your actual image path
-            alt="Jackson Lobo"
-            className="w-40 h-40 rounded-full object-cover"
-          />
-        </div>
-      </motion.div>
     </div>
   );
 };
