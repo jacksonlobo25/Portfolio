@@ -179,25 +179,16 @@ export default function DevOpsPortfolio() {
         </motion.div>
         )}
 
-        {/* Animated DevOps Loop */}
         {!input && !displayedOutput && (
-          <div
-              style={{
-                backgroundColor: '#000',
-                height: '100vh',
-                width: '100vw',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              <Lottie 
-                animationData={infinityLoopAnimation} 
-                loop={true}
-                style={{ width: '300px', height: '300px' }}
-              />
-            </div>
+          <div className="w-full max-w-sm mx-auto mt-10 flex justify-center items-center">
+            <Lottie
+              animationData={infinityLoopAnimation}
+              loop={true}
+              style={{ width: '200px', height: '200px' }}
+            />
+          </div>
         )}
+
       </div>
     </div>
     </div>
