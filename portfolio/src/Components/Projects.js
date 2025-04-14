@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import ProjectCard from "./ui/ProjectCard";
 import TypedLine from "./ui/TypedLine";
 
 const steps = [
-  "kubectl apply -f projects.yaml",
   "deployment.apps/portfolio created",
   "service/portfolio-svc created",
   "Waiting for pods to become ready...",
@@ -43,11 +41,6 @@ const projects = [
     title: "Spring Boot + React App",
     image: "/images/fullstack.png",
     github: "https://github.com/yourname/spring-react-app"
-  },
-  {
-    title: "Spring Boot + React App",
-    image: "/images/fullstack.png",
-    github: "https://github.com/yourname/spring-react-app"
   }
 ];
 
@@ -61,7 +54,7 @@ const Projects = () => {
       const timeout = setTimeout(() => {
         setVisibleSteps((prev) => [...prev, steps[currentStep]]);
         setCurrentStep((prev) => prev + 1);
-      }, 1200);
+      }, 1000);
       return () => clearTimeout(timeout);
     } else {
       setTimeout(() => setShowProjects(true), 1000);
@@ -71,10 +64,13 @@ const Projects = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-4 text-white">
       {/* Terminal Box */}
-      <div className="bg-[#1e1e1e] border border-green-500 rounded-md p-6 font-mono text-green-300 shadow-lg text-sm">
+      <div className="max-w-xl mx-auto bg-[#1a1a1a] border border-green-500 rounded-md p-4 font-mono text-green-300 text-sm shadow-lg text-left">
+        <p className="text-purple-400">
+          /home/jackson:$ <span className="text-green-300">kubectl apply -f projects.yaml</span>
+        </p>
         {visibleSteps.map((step, idx) => (
           <div key={idx} className="mb-1">
-            <TypedLine text={step}/>
+            <TypedLine text={step} />
           </div>
         ))}
       </div>
