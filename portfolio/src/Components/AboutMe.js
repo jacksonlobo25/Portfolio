@@ -36,24 +36,24 @@ const AboutMe = () => {
 
   return (
     <div className="max-w-4xl mx-auto mt-10 px-4 font-mono text-sm text-green-300">
-      
-      {/* Profile Image */}
+
+      {/* Profile Image Centered */}
       <motion.div
         initial={{ opacity: 0, y: 20, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="mb-6"
+        className="flex justify-center mb-8"
       >
-        <div className="rounded-full border-4 border-green-500 w-28 h-28 overflow-hidden">
+        <div className="rounded-full border-4 border-green-500 w-28 h-28 overflow-hidden shadow-lg">
           <img
-            src="/images/your-photo.jpg" // 🔁 Replace with your image
+            src="/images/Picture1.jpg"  // Replace with your image path
             alt="Jackson Lobo"
             className="object-cover w-full h-full"
           />
         </div>
       </motion.div>
 
-      {/* Terminal-style box */}
+      {/* Terminal Box */}
       <div className="bg-[#0d1117] border border-green-500 rounded-md px-4 py-5 shadow-lg whitespace-pre-wrap text-left">
         <div className="text-purple-400 mb-2">/home/jackson:$ <span className="text-green-300">whoami</span></div>
 
