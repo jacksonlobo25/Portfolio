@@ -185,7 +185,7 @@ export default function DevOpsPortfolio() {
             <Lottie
               animationData={infinityLoopAnimation}
               loop={true}
-              style={{ width: '200px', height: '200px' }}
+              style={{ width: '300px', height: '300px' }}
             />
           </div>
         )}

@@ -17,16 +17,18 @@ const experienceText = `
 
 const Experience = () => {
   return (
-    <div className="p-6 text-sm leading-relaxed shadow-lg max-w-3xl mx-auto whitespace-pre-wrap overflow-hidden">
-      <Typewriter
-        words={[experienceText]}
-        loop={1}
-        cursor
-        cursorStyle="_"
-        typeSpeed={10}
-        deleteSpeed={0}
-        delaySpeed={800}
-      />
+    <div className="max-w-4xl mx-auto mt-6 px-4">
+      <div className="bg-[#0d1117] border border-green-500 text-green-300 font-mono text-left text-sm p-6 rounded-md shadow-lg whitespace-pre-wrap">
+        <Typewriter
+          words={[experienceText]}
+          loop={1}
+          cursor
+          cursorStyle="_"
+          typeSpeed={10}
+          deleteSpeed={0}
+          delaySpeed={800}
+        />
+      </div>
     </div>
   );
 };
