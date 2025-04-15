@@ -28,6 +28,7 @@ export default function DevOpsPortfolio() {
   const [displayedOutput, setDisplayedOutput] = useState("");
   const [loading, setLoading] = useState(false);
   const [kernelPanic, setKernelPanic] = useState(false);
+  const [showIfconfig, setShowIfconfig] = useState(false);
 
   const [inactive, setInactive] = useState(false);
   const inactivityTimer = useRef(null);
@@ -89,6 +90,12 @@ export default function DevOpsPortfolio() {
     // Easter Egg: fake crash if "rm" command
     if (trimmed.startsWith("rm")) {
       setKernelPanic(true);
+      setInput("");
+      return;
+    }
+
+    if (trimmed === "ifconfig") {
+      setShowIfconfig(true);
       setInput("");
       return;
     }
@@ -206,6 +213,8 @@ export default function DevOpsPortfolio() {
     </div>
 
     {kernelPanic && <FakeKernelPanic />}
+
+    {showIfconfig && <FakeIfconfig />}
 
     </div>
   );

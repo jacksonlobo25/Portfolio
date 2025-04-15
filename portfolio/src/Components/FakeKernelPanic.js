@@ -221,7 +221,7 @@ const FakeKernelPanic = () => {
   }, [visibleLines]);
 
   return (
-    <div className="fixed inset-0 bg-black text-red-600 font-mono text-sm z-[9999] overflow-hidden">
+    <div className="fixed inset-0 bg-black text-white font-mono text-sm z-[9999] overflow-hidden">
       <div
         ref={containerRef}
         className="w-full h-full p-6 overflow-y-auto"
