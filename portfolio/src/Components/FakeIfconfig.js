@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import QRCode from 'qrcode.react';
+import { QRCode } from 'qrcode.react';
 
 const ifconfigLines = [
   "eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
