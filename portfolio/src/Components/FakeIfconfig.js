@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { QRCode } from 'qrcode.react';
+import { QRCodeSVG  } from 'qrcode.react';
 
 const ifconfigLines = [
   "eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
@@ -60,7 +60,7 @@ const FakeIfconfig = () => {
 
         {showQR && (
           <div className="mt-6 flex justify-center">
-            <QRCode value="https://www.youtube.com/watch?v=w0drLyhnByk" size={128} fgColor="#22c55e" bgColor="#000000" />
+            <QRCodeSVG  value="https://www.youtube.com/watch?v=w0drLyhnByk" size={128} fgColor="#22c55e" bgColor="#000000" />
           </div>
         )}
       </div>
