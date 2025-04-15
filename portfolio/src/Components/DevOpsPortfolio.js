@@ -13,6 +13,7 @@ import Contact from "./Contact.js";
 import infinityLoopAnimation from '../assets/CodingAnimation.json';
 import FakeKernelPanic from "./FakeKernelPanic.js";
 import FakeIfconfig from "./FakeIfconfig.js";
+import AccessDenied from "./AccessDenied.js";
 
 const commandMap = {
   "git clone": <Experience />,
@@ -236,14 +237,7 @@ export default function DevOpsPortfolio() {
 
     {showIfconfig && <FakeIfconfig />}
 
-    {isBanned && (
-      <div className="fixed inset-0 bg-black text-red-500 font-mono text-center flex flex-col items-center justify-center z-[9999] px-4">
-        <h1 className="text-4xl mb-4">🔒 Access Denied</h1>
-        <p className="text-lg">You have entered a restricted command.</p>
-        <p className="text-sm mt-2">Please wait 5 minutes before trying again.</p>
-      </div>
-    )}
-
+    {isBanned && <AccessDenied />}
 
     </div>
   );
