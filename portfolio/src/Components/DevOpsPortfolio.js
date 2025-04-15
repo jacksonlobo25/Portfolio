@@ -12,6 +12,7 @@ import AboutMe from "./AboutMe.js";
 import Contact from "./Contact.js";
 import infinityLoopAnimation from '../assets/CodingAnimation.json';
 import FakeKernelPanic from "./FakeKernelPanic.js";
+import FakeIfconfig from "./FakeIfconfig.js";
 
 const commandMap = {
   "git clone": <Experience />,
