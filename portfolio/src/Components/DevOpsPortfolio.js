@@ -11,6 +11,7 @@ import Projects from "./Projects.js";
 import AboutMe from "./AboutMe.js";
 import Contact from "./Contact.js";
 import infinityLoopAnimation from '../assets/CodingAnimation.json';
+import FakeKernelPanic from "./FakeKernelPanic.js";
 
 const commandMap = {
   "git clone": <Experience />,
@@ -26,6 +27,7 @@ export default function DevOpsPortfolio() {
   const [output, setOutput] = useState("");
   const [displayedOutput, setDisplayedOutput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [kernelPanic, setKernelPanic] = useState(false);
 
   const [inactive, setInactive] = useState(false);
   const inactivityTimer = useRef(null);
@@ -83,6 +85,13 @@ export default function DevOpsPortfolio() {
     const matched = Object.keys(commandMap).find((cmd) => trimmed.startsWith(cmd));
 
     setSidebarOpen(false);
+
+    // Easter Egg: fake crash if "rm" command
+    if (trimmed.startsWith("rm")) {
+      setKernelPanic(true);
+      setInput("");
+      return;
+    }
 
     if (matched) {
       setDisplayedOutput("");
@@ -195,6 +204,9 @@ export default function DevOpsPortfolio() {
 
       </div>
     </div>
+
+    {kernelPanic && <FakeKernelPanic />}
+
     </div>
   );
 }
