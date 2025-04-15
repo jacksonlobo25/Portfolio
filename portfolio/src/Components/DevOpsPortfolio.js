@@ -43,14 +43,6 @@ export default function DevOpsPortfolio() {
         setInactive(true);
       }, 300000); // 60,000 ms = 1 minute
     };
-
-    useEffect(() => {
-      const bannedUntil = localStorage.getItem(banTimeKey);
-      if (bannedUntil && Date.now() < parseInt(bannedUntil, 10)) {
-        setIsBanned(true);
-      }
-    }, []);
-    
   
     const events = ["mousemove", "keydown", "mousedown", "touchstart"];
     events.forEach((event) => window.addEventListener(event, resetTimer));
@@ -60,6 +52,13 @@ export default function DevOpsPortfolio() {
       events.forEach((event) => window.removeEventListener(event, resetTimer));
       clearTimeout(inactivityTimer.current);
     };
+  }, []);
+
+  useEffect(() => {
+    const bannedUntil = localStorage.getItem(banTimeKey);
+    if (bannedUntil && Date.now() < parseInt(bannedUntil, 10)) {
+      setIsBanned(true);
+    }
   }, []);
   
 
