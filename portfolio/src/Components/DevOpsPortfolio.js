@@ -30,17 +30,27 @@ export default function DevOpsPortfolio() {
   const [loading, setLoading] = useState(false);
   const [kernelPanic, setKernelPanic] = useState(false);
   const [showIfconfig, setShowIfconfig] = useState(false);
-
+  const [isBanned, setIsBanned] = useState(false);
+  const banTimeKey = "devops-portfolio-banned-until";
+  
   const [inactive, setInactive] = useState(false);
   const inactivityTimer = useRef(null);
   
-  useEffect(() => {
+    useEffect(() => {
     const resetTimer = () => {
       clearTimeout(inactivityTimer.current);
       inactivityTimer.current = setTimeout(() => {
         setInactive(true);
       }, 300000); // 60,000 ms = 1 minute
     };
+
+    useEffect(() => {
+      const bannedUntil = localStorage.getItem(banTimeKey);
+      if (bannedUntil && Date.now() < parseInt(bannedUntil, 10)) {
+        setIsBanned(true);
+      }
+    }, []);
+    
   
     const events = ["mousemove", "keydown", "mousedown", "touchstart"];
     events.forEach((event) => window.addEventListener(event, resetTimer));
@@ -97,6 +107,16 @@ export default function DevOpsPortfolio() {
 
     if (trimmed === "ifconfig") {
       setShowIfconfig(true);
+      setInput("");
+      return;
+    }
+
+    const dangerousCommands = ["kill", "delete", "rm"];
+
+    if (dangerousCommands.some(cmd => trimmed.startsWith(cmd))) {
+      const banUntil = Date.now() + 1 * 60 * 1000; // 5 minutes
+      localStorage.setItem(banTimeKey, banUntil.toString());
+      setIsBanned(true);
       setInput("");
       return;
     }
@@ -216,6 +236,15 @@ export default function DevOpsPortfolio() {
     {kernelPanic && <FakeKernelPanic />}
 
     {showIfconfig && <FakeIfconfig />}
+
+    {isBanned && (
+      <div className="fixed inset-0 bg-black text-red-500 font-mono text-center flex flex-col items-center justify-center z-[9999] px-4">
+        <h1 className="text-4xl mb-4">🔒 Access Denied</h1>
+        <p className="text-lg">You have entered a restricted command.</p>
+        <p className="text-sm mt-2">Please wait 5 minutes before trying again.</p>
+      </div>
+    )}
+
 
     </div>
   );
