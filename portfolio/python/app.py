@@ -6,8 +6,8 @@ output_file = 'output.html'
 with open(input_file, 'r') as f:
     lines = f.readlines()
 
-# Wrap each line with <p> and </p>
-wrapped_lines = [f"<p>{line.strip()}</p>\n" for line in lines]
+# Wrap each line with double quotes
+wrapped_lines = [f'"{line.strip()}"\n' for line in lines]
 
 # Write the wrapped lines to the output file
 with open(output_file, 'w') as f:
