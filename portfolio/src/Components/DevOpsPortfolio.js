@@ -178,7 +178,16 @@ export default function DevOpsPortfolio() {
       setOutput(commandMap[matched]);
       setLoading(true);
     } else {
-      setDisplayedOutput("\u26a0\ufe0f Command not recognized. Try: git clone, docker build, kubectl apply, etc.");
+      setDisplayedOutput(
+        <>
+          ⚠️ <span className="text-yellow-300">Command not recognized.</span>{' '}
+          <span className="text-green-400">Try commands like:</span>{' '}
+          <span className="text-green-500">whoami</span>,{' '}
+          <span className="text-green-500">top</span>,{' '}
+          <span className="text-green-500">ls</span>,{' '}
+          <span className="text-green-500">ping me</span>
+        </>
+      );      
     }
     setInput("");
   };
@@ -250,8 +259,9 @@ export default function DevOpsPortfolio() {
             {typeof displayedOutput === "string" && displayedOutput.startsWith("⚠️") ? (
               // Show Card with border ONLY for invalid command
               <Card className="bg-gray-800 border border-green-500">
-                <CardContent className="p-6 text-lg text-left font-mono text-green-300 whitespace-pre-wrap">
-                  {displayedOutput}
+                <CardContent className="p-4 text-sm text-yellow-300 font-mono flex items-start gap-2">
+                  <span>⚠️</span>
+                  <div>{displayedOutput}</div>
                 </CardContent>
               </Card>
             ) : (
