@@ -16,11 +16,11 @@ import FakeIfconfig from "./FakeIfconfig.js";
 import AccessDenied from "./AccessDenied.js";
 
 const commandMap = {
-  "git clone": <Experience />,
-  "docker build": <Skills/>,
-  "kubectl apply": <Projects/>,
-  "terraform apply": <AboutMe/>,
-  "monitoring enable": <Contact/>
+  "history": <Experience />,
+  "cat skills": <Skills/>,
+  "ls projects": <Projects/>,
+  "whoami": <AboutMe/>,
+  "ping me": <Contact/>
 };
 
 export default function DevOpsPortfolio() {
@@ -98,23 +98,51 @@ export default function DevOpsPortfolio() {
 
     setSidebarOpen(false);
 
-    // Easter Egg: fake crash if "rm" command
-    if (trimmed.startsWith("rm")) {
+    const kernelPanicCommands = [
+      "rm -rf /",                // The classic "nuclear" command
+      "dd if=/dev/zero of=/dev/sda", // Destroys disk with zeros
+      "mkfs.ext4 /dev/sda",      // Formats a drive
+      ">:(){ :|:& };:",          // Fork bomb (kills system with processes)
+      "cat /dev/urandom > /dev/sda", // Overwrites disk with garbage
+      "echo c > /proc/sysrq-trigger", // Triggers a kernel crash (IRL!)
+      "kill -9 1",               // Attempts to kill init process
+    ];
+
+    if (kernelPanicCommands.includes(trimmed)) {
       setKernelPanic(true);
       setInput("");
       return;
     }
 
-    if (trimmed === "ifconfig") {
+    //Fake network data 
+    const networkCommands = [
+      "ifconfig",
+      "netstat",
+      "ss",
+      "traceroute"
+    ]
+
+    if (networkCommands.includes(trimmed)) {
       setShowIfconfig(true);
       setInput("");
       return;
     }
 
-    const dangerousCommands = ["kill", "delete", "rm"];
+    //Block user for 5 min
+    const dangerousCommands = [
+      "kill",
+      "delete",
+      "rm",
+      "dd",          // classic dangerous disk command
+      "mkfs",        // formatting drives
+      "shutdown",    // simulate system shutting down
+      "reboot",      // fake restart
+      "halt",        // mimic stop
+      "init 0",      // simulates power off
+    ];    
 
     if (dangerousCommands.some(cmd => trimmed.startsWith(cmd))) {
-      const banUntil = Date.now() + 1 * 60 * 1000; // 5 minutes
+      const banUntil = Date.now() + 5 * 60 * 1000; 
       localStorage.setItem(banTimeKey, banUntil.toString());
       setIsBanned(true);
       setInput("");
@@ -179,7 +207,7 @@ export default function DevOpsPortfolio() {
           <div className="relative w-full">
             <Input
               className="bg-black/80 border border-green-500 focus:ring-green-400 text-white placeholder:text-gray-500 font-mono pr-4"
-              placeholder="Enter DevOps command e.g. kubectl apply"
+              placeholder="Enter command e.g. whoami"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               autoFocus

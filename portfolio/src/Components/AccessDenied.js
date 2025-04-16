@@ -1,12 +1,15 @@
 import React from "react";
 import Lottie from "lottie-react";
-import CodingAnimation from '../assets/CodingAnimation.json';
+import CodingAnimation from '../assets/WarningAnimation.json';
 
 const AccessDenied = () => {
   return (
     <div className="fixed inset-0 bg-black text-red-500 font-mono text-center flex flex-col items-center justify-center z-[9999] px-4">
       <div className="w-48 h-48 mb-6">
-        <Lottie animationData={CodingAnimation} loop={true} />
+        <Lottie animationData={CodingAnimation} 
+                loop={true} 
+                style={{ width: '250px', height: '250px' }}
+        />
       </div>
       <h1 className="text-4xl mb-4">🔒 Access Denied</h1>
       <p className="text-lg">You have entered a restricted command.</p>
