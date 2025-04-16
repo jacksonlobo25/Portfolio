@@ -16,11 +16,35 @@ import FakeIfconfig from "./FakeIfconfig.js";
 import AccessDenied from "./AccessDenied.js";
 
 const commandMap = {
+  // About Me
+  "whoami": <AboutMe />,
+  "hostname": <AboutMe />,
+  "who": <AboutMe />,
+  "logname": <AboutMe />,
+
+  // Skills
+  "top": <Skills />,
+  "iostat": <Skills />,
+  "glances": <Skills />,
+  "vmstat": <Skills />,
+
+  // Experience
   "history": <Experience />,
-  "cat skills": <Skills/>,
-  "ls projects": <Projects/>,
-  "whoami": <AboutMe/>,
-  "ping me": <Contact/>
+  "uptime": <Experience />,
+  "last": <Experience />,
+  "journalctl": <Experience />,
+
+  // Projects
+  "ls": <Projects />,
+  "tree": <Projects />,
+  "find": <Projects />,
+  "stat": <Projects />,
+
+  // Contact
+  "ping me": <Contact />,
+  "telnet": <Contact />,
+  "mail": <Contact />,
+  "talk": <Contact />
 };
 
 export default function DevOpsPortfolio() {
@@ -94,12 +118,12 @@ export default function DevOpsPortfolio() {
   const handleCommand = (e) => {
     e.preventDefault();
     const trimmed = input.trim().toLowerCase();
-    const matched = Object.keys(commandMap).find((cmd) => trimmed.startsWith(cmd));
+    const firstWord = trimmed.split(" ")[0];
+    const matched = Object.keys(commandMap).find((cmd) => cmd === firstWord);
 
     setSidebarOpen(false);
 
     const kernelPanicCommands = [
-      "rm -rf /",                // The classic "nuclear" command
       "dd if=/dev/zero of=/dev/sda", // Destroys disk with zeros
       "mkfs.ext4 /dev/sda",      // Formats a drive
       ">:(){ :|:& };:",          // Fork bomb (kills system with processes)

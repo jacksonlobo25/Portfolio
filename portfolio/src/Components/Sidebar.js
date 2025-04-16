@@ -4,28 +4,23 @@ import { motion } from "framer-motion";
 const commands = [
   {
     title: "👤 About Me",
-    cmds: ["whoami", "who", "logname", "hostname"],
-    desc: "Show About Me"
+    cmds: ["whoami", "who", "logname", "hostname"]
   },
   {
     title: "🧠 Skills",
-    cmds: ["top", "iostat", "glances", "vmstat"],
-    desc: "Show Skills"
+    cmds: ["top", "iostat", "glances", "vmstat"]
   },
   {
     title: "💼 Experience",
-    cmds: ["history", "uptime", "last", "journalctl"],
-    desc: "Show Experience"
+    cmds: ["history", "uptime", "last", "journalctl"]
   },
   {
     title: "🚀 Projects",
-    cmds: ["ls", "tree", "find", "stat"],
-    desc: "Show Projects"
+    cmds: ["ls", "tree", "find", "stat"]
   },
   {
     title: "📞 Contact",
-    cmds: ["ping me", "telnet", "mail", "talk"],
-    desc: "Show Contact"
+    cmds: ["ping me", "telnet", "mail", "talk"]
   }
 ];
 
@@ -35,7 +30,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       initial={{ x: -300 }}
       animate={{ x: isOpen ? 0 : -300 }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      className="fixed top-0 left-0 h-full w-64 z-50 bg-black border-r border-green-700 text-green-400 font-mono p-4 shadow-lg overflow-y-auto"
+      className="fixed top-0 left-0 h-full w-64 z-50 bg-black border-r border-green-700 text-green-400 font-mono p-4 shadow-lg overflow-y-auto pb-12"
     >
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">📜 Commands</h2>
@@ -60,16 +55,16 @@ const Sidebar = ({ isOpen, onClose }) => {
                 className="hover:text-green-300"
               >
                 <span className="text-green-400">{cmd}</span>
-                <span className="text-gray-400"> — {section.desc}</span>
               </motion.li>
             ))}
           </ul>
         </div>
       ))}
 
-      <p className="text-xs text-gray-400 border-t border-green-800 pt-4 mt-4">
-        💡 You can also try other Linux-style commands like <span className="text-green-400">kill</span>, <span className="text-green-400">rm -rf /</span>, or <span className="text-green-400">404</span> for fun!
+      <p className="text-xs text-red-400 border-t border-green-800 pt-4 mt-4 italic">
+        ⚠️ Try typing <span className="text-green-400 font-semibold">shutdown</span>... if you dare.
       </p>
+
     </motion.div>
   );
 };
