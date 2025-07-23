@@ -13,34 +13,39 @@ const steps = [
 
 const projects = [
   {
-    title: "CI/CD Pipeline",
-    image: "/images/cicd.png",
-    github: "https://github.com/yourname/cicd-pipeline"
+    title: "DevOpsPOC",
+    image: `${process.env.PUBLIC_URL}/images/DevOpsPOC.png`,
+    github: "https://github.com/jacksonlobo25/DevOps-POC"
   },
   {
-    title: "Kubernetes Monitoring",
-    image: "/images/monitoring.png",
-    github: "https://github.com/yourname/k8s-monitoring"
+    title: "NetmedsHub",
+    image: `${process.env.PUBLIC_URL}/images/NetmedsHub.png`,
+    github: "https://github.com/jacksonlobo25/Netmeds"
   },
   {
-    title: "Spring Boot + React App",
-    image: "/images/fullstack.png",
-    github: "https://github.com/yourname/spring-react-app"
+    title: "CleanChain",
+    image: `${process.env.PUBLIC_URL}/images/CleanChain.png`,
+    github: "https://github.com/jacksonlobo25/Roger-404-Airbus"
   },
   {
-    title: "Spring Boot + React App",
-    image: "/images/fullstack.png",
-    github: "https://github.com/yourname/spring-react-app"
+    title: "PrintGender",
+    image: `${process.env.PUBLIC_URL}/images/PrintGender.png`,
+    github: "https://github.com/jacksonlobo25/Gender_Determination_based_on_Fingerprint"
   },
   {
-    title: "Spring Boot + React App",
-    image: "/images/fullstack.png",
-    github: "https://github.com/yourname/spring-react-app"
+    title: "NurseryHub",
+    image: `${process.env.PUBLIC_URL}/images/NurseryHub.png`,
+    github: "https://github.com/jacksonlobo25/Nursery-Management-System"
   },
   {
-    title: "Spring Boot + React App",
-    image: "/images/fullstack.png",
-    github: "https://github.com/yourname/spring-react-app"
+    title: "SteganoPix",
+    image: `${process.env.PUBLIC_URL}/images/SteganoPix.png`,
+    github: "https://github.com/jacksonlobo25/Image-Steganography-"
+  },
+  {
+    title: "GasNow",
+    image: `${process.env.PUBLIC_URL}/images/GasNow.png`,
+    github: "https://github.com/jacksonlobo25/Gas-Booking-System"
   }
 ];
 

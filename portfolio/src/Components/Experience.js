@@ -4,10 +4,14 @@ import { Typewriter } from "react-simple-typewriter";
 const experienceText = `
 🔧 Endava — Junior DevOps Engineer (Aug. 2023 – Present)
 
-• Optimized and maintained Jenkins pipelines, troubleshooting build errors and refining CI/CD.
-• Deployed applications in Kubernetes using Terraform, provisioning scalable and deployable nodes.
-• Monitored application logs using Splunk and AWS CloudWatch to enhance system performance.
-• Implemented DevOps best practices in Spring Boot and React projects.
+• Built and maintained scalable CI/CD pipelines for 15+ microservices using GitLab CI and Jenkins, reducing average
+deployment time by 30% and minimizing pipeline failures by 25% through optimized Docker image workflows.
+• Migrated application deployment from EC2 instances to Amazon EKS with managed node groups, enabling
+containerized microservices architecture and improving deployment speed, scalability, and fault tolerance by over 40%.
+• Designed and implemented cloud-native solutions using AWS S3, Lambda, RDS, and API Gateway, improving
+application performance and scalability by 50% through a well-architected, event-driven architecture.
+• Deployed centralized monitoring using Splunk, Prometheus, and Grafana, reducing mean time to detect and resolve
+issues by 35%, and enabling real-time performance insights across distributed systems.
 
 💻 Kakunje Software — Software Engineering Intern (Jan. 2023 – Apr. 2023)
 

@@ -21,7 +21,7 @@ const AboutMe = () => {
       setTypedText((prev) => prev + fullText.charAt(index));
       index++;
       if (index === fullText.length) clearInterval(interval);
-    }, 40);
+    }, 30);
     return () => clearInterval(interval);
   }, []);
 
@@ -46,7 +46,7 @@ const AboutMe = () => {
       >
         <div className="rounded-full border-4 border-green-500 w-28 h-28 overflow-hidden shadow-lg">
           <img
-            src="/images/Picture1.jpg"  // Replace with your image path
+            src={`${process.env.PUBLIC_URL}/images/Picture1.jpg`}
             alt="Jackson Lobo"
             className="object-cover w-full h-full"
           />
@@ -64,7 +64,7 @@ const AboutMe = () => {
             onClick={handleGenerateClick}
             className="bg-[#1e1e1e] text-green-400 border border-green-600 px-6 py-2 rounded-lg text-sm hover:bg-green-900 hover:text-white transition-all duration-200 shadow-md active:scale-95"
           >
-            ⚙️ Generate Display
+            ⚙️ Generate Resume
           </button>
         </div>
 
